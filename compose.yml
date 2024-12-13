@@ -1,0 +1,34 @@
+services:
+  backend:
+    build:
+      context: ./backend # ディレクトリ名
+      dockerfile: ./Dockerfile
+      target: builder # マルチステージビルドの場合、ビルド対象を指定
+    command:
+      - ./main
+    container_name: Bibliotheca
+    env_file: './backend/.env'
+    ports:
+      - "8080:8081"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=example
+      - DB_NAME=bibliotheca
+    depends_on:
+      - db
+  db:
+    image: postgres:15.0
+    container_name: db
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: bibliotheca
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
