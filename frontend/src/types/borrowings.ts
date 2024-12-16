@@ -1,7 +1,5 @@
-import { UUID } from "crypto";
-
 export interface Borrowing {
-    id: UUID;
+    id: string;
     book_id: number;
     user_id: number;
     borrowed_date: Date;

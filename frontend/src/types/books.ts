@@ -1,7 +1,5 @@
-import { UUID } from "crypto";
-
 export interface Book {
-    id: UUID;
+    id: string;
     isbn: number;
     title: string;
     author: string;

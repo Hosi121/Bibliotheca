@@ -1,7 +1,5 @@
-import { UUID } from "crypto";
-
 export interface User {
-    id: UUID;
+    id: string;
     email: string;
     hashed_password: string;
     username: string;
@@ -10,4 +8,3 @@ export interface User {
     created_at: Date;
     updated_at: Date;
   }
-  
