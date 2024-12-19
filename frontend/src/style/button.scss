@@ -1,0 +1,41 @@
+.button {
+  display: inline-block;
+  
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  // ホバー時のスタイル
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  // アクティブ時のスタイル
+  &:active {
+    background-color: #004085;
+  }
+
+  // 無効状態のスタイル
+  &:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+
+  // 修飾子
+  &-main {
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 25px;
+  }
+
+  &-minimal {
+    border-radius: 10px;
+    padding: 5px 20px;
+    font-size: 15px;
+  }
+}
