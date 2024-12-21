@@ -2,15 +2,14 @@ package model
 
 import "time"
 
-type borrowings struct {
-	borrowing_id int `gorm:"primary_key"`
-	book_id int `gorm:"not null"`
-	user_id int `gorm:"not null"`
-	borrow_date time.Time `gorm:"not null"`
-	due_date time.Time `gorm:"not null"`
-	returned_date *time.Time
-	created_at time.Time
-	updated_at time.Time
-	books books `gorm:"foreignKey:book_id;constraint:OnDelete:RESTRICT"`
-	users users `gorm:"foreignKey:user_id;constraint:OnDelete:CASCADE"`
+type Borrowing struct {
+	BorrowingID  uint      `gorm:"primaryKey"`
+	BookID       uint      `gorm:"not null"`
+	UserID       uint      `gorm:"not null"`
+	BorrowDate   time.Time `gorm:"not null"`
+	DueDate      time.Time `gorm:"not null"`
+	ReturnedDate *time.Time
+	Book         Book      `gorm:"foreignKey:BookID;constraint:OnDelete:RESTRICT"`
+	User         User      `gorm:"foreignKey:UserID;constraint:OnDelete:CASCADE"`
+	BaseModel
 }
