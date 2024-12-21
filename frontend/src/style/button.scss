@@ -13,7 +13,11 @@
 
   // ホバー時のスタイル
   &:hover {
-    background-color: #0056b3;
+    // background-color: #0056b3;
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em) translateX(-0.25em);
+    transition: 0.25s;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.5);
   }
 
   // アクティブ時のスタイル
