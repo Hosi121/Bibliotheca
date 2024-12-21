@@ -1,0 +1,54 @@
+.button {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  // ホバー時のスタイル
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  // アクティブ時のスタイル
+  &:active {
+    background-color: #004085;
+  }
+
+  // 無効状態のスタイル
+  &:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+
+  // 修飾子
+  &-main {
+    border-radius: 10px;
+    padding: 0;
+    font-size: 25px;
+    width: 33.33%; // 画面の3分の1
+    aspect-ratio: 1 / 1; // 正方形
+    min-width: 100px; // 最低幅
+    min-height: 100px; // 最低高さ
+  }
+
+  &-minimal {
+    border-radius: 10px;
+    padding: 8px 8px;
+    font-size: 15px;
+  }
+
+  &-normal {
+    border-radius: 10px;
+    padding: 0;
+    font-size: 18px;
+    width: 20%; // 画面の5分の1
+    aspect-ratio: 1 / 1; // 正方形
+    min-width: 80px; // 最低幅
+    min-height: 80px; // 最低高さ
+  }
+}
