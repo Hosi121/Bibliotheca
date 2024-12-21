@@ -2,15 +2,14 @@ package model
 
 import "time"
 
-type books struct {
-	book_id int `gorm:"primary_key"`
-	isbn string `gorm:"unique;not null"`
-	title string `gorm:"not null"`
-	author string `gorm:"not null"`
-	publisher string `gorm:"not null"`
-	published_date time.Time
-	status string `gorm:"type:string;not null"`//string status -- GORMでtype:"string", 値例: 'active', 'removed'
-	removal_reason *string `gorm:"type:string"`
-	created_at time.Time
-	updated_at time.Time
+type Book struct {
+	ID             uint    `gorm:"primaryKey"`
+	ISBN           string  `gorm:"unique;not null"`
+	Title          string  `gorm:"not null"`
+	Author         string  `gorm:"not null"`
+	Publisher      string  `gorm:"not null"`
+	PublishedDate  time.Time
+	Status         string  `gorm:"type:string;not null"` // e.g., "active", "removed"
+	RemovalReason  *string `gorm:"type:string"`
+	BaseModel
 }
