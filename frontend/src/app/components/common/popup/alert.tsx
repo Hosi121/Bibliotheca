@@ -1,6 +1,6 @@
 import { Button } from "@/app/components/common/button/button";
 import { Text } from "@/app/components/common/text/text";
-import "@/style/popup.scss";
+import "@/style/alert.scss";
 
 interface AlertProps {
   message: string;
