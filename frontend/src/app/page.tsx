@@ -1,6 +1,7 @@
-"use client"
+"use client";
 
-import { BookColumn } from "./components/table/bookColumn";
+import { BookColumn } from "./components/column/bookColumn";
+import { UserColumn } from "./components/column/userColumn";
 
 export default function Home() {
   return (
@@ -41,6 +42,7 @@ export default function Home() {
         onClick={() => {}}
       />
 
+      <UserColumn id="test@gmail.com" buttonLabel="消去" onClick={() => {}} />
     </>
   );
 }
