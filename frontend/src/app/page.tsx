@@ -4,45 +4,36 @@ import { BookColumn } from "./components/column/bookColumn";
 import { UserColumn } from "./components/column/userColumn";
 
 export default function Home() {
+  const books = [
+    { id: 1, title: "Book 1", ISBN: 9781234567897 },
+    { id: 2, title: "Book 2", ISBN: 9781234567898 },
+    { id: 3, title: "Book 3", ISBN: 9781234567899 },
+    { id: 4, title: "Book 4", ISBN: 9781234567800 },
+    { id: 5, title: "Book 5", ISBN: 9781234567801 },
+  ];
+
   return (
     <>
-      <BookColumn
-        id={1}
-        title="Title"
-        ISBN={1234567890123}
-        buttonLabel="借りる"
-        onClick={() => {}}
-      />
-      <BookColumn
-        id={2}
-        title="Title"
-        ISBN={1234567890123}
-        buttonLabel="借りる"
-        onClick={() => {}}
-      />
-      <BookColumn
-        id={3}
-        title="Title"
-        ISBN={1234567890123}
-        buttonLabel="借りる"
-        onClick={() => {}}
-      />
-      <BookColumn
-        id={4}
-        title="Title"
-        ISBN={1234567890123}
-        buttonLabel="借りる"
-        onClick={() => {}}
-      />
-      <BookColumn
-        id={5}
-        title="Title"
-        ISBN={1234567890123}
-        buttonLabel="借りる"
-        onClick={() => {}}
-      />
+      {books.map((book) => (
+        <BookColumn
+          key={book.id}
+          id={book.id}
+          title={book.title}
+          ISBN={book.ISBN}
+          buttonLabel="借りる"
+          onClick={() => {
+            console.log(`Book ${book.id} borrowed`);
+          }}
+        />
+      ))}
 
-      <UserColumn id="test@gmail.com" buttonLabel="消去" onClick={() => {}} />
+      <UserColumn
+        id="test@gmail.com"
+        buttonLabel="消去"
+        onClick={() => {
+          console.log("User deleted");
+        }}
+      />
     </>
   );
 }
