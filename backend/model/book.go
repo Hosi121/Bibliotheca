@@ -3,7 +3,7 @@ package model
 import "time"
 
 type Book struct {
-	ID             uint    `gorm:"primaryKey"`
+	BookID             uint    `gorm:"primaryKey"`
 	ISBN           string  `gorm:"unique;not null"`
 	Title          string  `gorm:"not null"`
 	Author         string  `gorm:"not null"`
