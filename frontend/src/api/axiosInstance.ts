@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import authService from "@/api/services/authService";
+import authService from "@/api/authService";
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
@@ -8,6 +8,7 @@ const axiosInstance: AxiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use((config) => {
   const token = authService.getAccessToken();
+  console.log("token", token);
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }

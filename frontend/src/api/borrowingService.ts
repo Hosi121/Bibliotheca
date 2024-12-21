@@ -1,5 +1,7 @@
+'use server';
+
 import axios from "@/api/axiosInstance";
-import { Borrowing } from "../../types/borrowings";
+import { Borrowing } from "@/types/borrowings";
 
 const borrowingService = {
   async borrowBook(bookId: string, userId: string): Promise<Borrowing> {
