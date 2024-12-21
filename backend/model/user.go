@@ -5,6 +5,6 @@ type User struct {
 	Email          string `gorm:"unique;not null"`
 	HashedPassword string `gorm:"not null"`
 	Username       string `gorm:"not null"`
-	Role           string `gorm:"type:string;not null"`
+	Role           string `gorm:"type:string;not null"`//e.g., "admin", "user"
 	BaseModel
 }
