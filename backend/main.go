@@ -15,7 +15,10 @@ func main() {
 
 	// CORS設定
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"*"}, // フロントエンドのオリジン
+		AllowOrigins: []string{
+			"http://localhost:3000",
+			"https://bibliotheca-omega.vercel.app",
+		},
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders:     []string{"Content-Type", "Authorization"},
 		AllowCredentials: true,

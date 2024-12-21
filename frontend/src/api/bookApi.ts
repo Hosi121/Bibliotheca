@@ -1,7 +1,7 @@
 import axios from "@/api/axiosInstance";
 import { Book } from "@/types/books";
 
-const bookService = {
+const bookApi = {
   async addBook(book: Omit<Book, "id" | "created_at" | "updated_at" | "is_removed">): Promise<Book> {
     const response = await axios.post<Book>("/books", book);
     return response.data;
@@ -9,6 +9,7 @@ const bookService = {
 
   async listBooks(): Promise<Book[]> {
     const response = await axios.get<Book[]>("/books");
+    console.log(response.data);
     return response.data;
   },
 
@@ -28,4 +29,4 @@ const bookService = {
   },
 };
 
-export default bookService;
+export default bookApi;

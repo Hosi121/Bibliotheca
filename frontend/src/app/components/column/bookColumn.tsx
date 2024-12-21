@@ -5,7 +5,7 @@ import "@/style/bookColumn.scss";
 interface BookColumnProps {
   id: number;
   title: string;
-  ISBN: number;
+  ISBN: string;
   buttonLabel: string;
   onClick: (id: number) => void; // 引数に `id` を受け取り、戻り値なし
 }

@@ -1,10 +1,10 @@
 "use client";
 
-// import { BookColumn } from "@/app/components/column/bookColumn";
+import { BookColumn } from "@/app/components/column/bookColumn";
 import { Button } from "@/app/components/common/button/button";
 
 import { useRouter } from "next/navigation";
-import bookService from "@/api/bookService";
+import { bookService } from "@/services/bookServices";
 import { useState, useEffect } from "react";
 import { Book } from "@/types/books";
 
@@ -17,6 +17,7 @@ const Page = () => {
       const fetchedBooks = await bookService.listBooks();
       console.log("fetchedBooks:", fetchedBooks);
       setBooks(fetchedBooks);
+      console.log("books:", books);
     } catch (error) {
       console.error("Error fetching books:", error);
       setBooks(undefined);
@@ -31,7 +32,7 @@ const Page = () => {
   return (
     <div className="borrow">
       <h1 className="borrow-title">借りる</h1>
-      {/* {books === undefined ? (
+      {books === undefined ? (
         <p>書籍なし</p>
       ) : (
         books.map((book) => (
@@ -44,7 +45,7 @@ const Page = () => {
             title={book.title}
           />
         ))
-      )} */}
+      )}
       <Button
         label={"戻る"}
         type={"normal"}
