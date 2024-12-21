@@ -5,7 +5,7 @@ import { Button } from "@/app/components/common/button/button";
 import { Text } from "@/app/components/common/text/text";
 import "@/style/page/login.scss";
 
-export const Page = () => {
+const Page = () => {
   return (
     <div className="login">
       <Text variant={"h1"}>Bibliotheca</Text>
