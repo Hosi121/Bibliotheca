@@ -1,16 +1,17 @@
-import '@/style/form.scss';
-interface FormProps
-{
+import "@/style/form.scss";
+
+interface FormProps {
   label: string;
   type: "inline" | "online";
   setter: React.Dispatch<React.SetStateAction<string>>;
+  className?: string; // classNameをオプションとして追加
 }
 
 export const Form = (props: FormProps) => {
-  const { label, type, setter } = props;
+  const { label, type, setter, className } = props;
 
   return (
-    <form className={`form-${type}`}>
+    <form className={`form-${type} ${className || ""}`.trim()}>
       {type === "inline" ? (
         <>
           <input
