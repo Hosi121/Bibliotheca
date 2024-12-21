@@ -30,10 +30,8 @@
     border-radius: 10px;
     padding: 0;
     font-size: 25px;
-    width: 33.33%; // 画面の3分の1
+    width: 80px; // 画面の3分の1
     aspect-ratio: 1 / 1; // 正方形
-    min-width: 100px; // 最低幅
-    min-height: 100px; // 最低高さ
   }
 
   &-minimal {
@@ -46,7 +44,7 @@
     border-radius: 10px;
     padding: 0;
     font-size: 18px;
-    width: 20%; // 画面の5分の1
+    width: 40px; 
     aspect-ratio: 1 / 1; // 正方形
     min-width: 80px; // 最低幅
     min-height: 80px; // 最低高さ
