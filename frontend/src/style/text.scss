@@ -1,3 +1,5 @@
+@use 'variables' as var; // ./variables.scssに書かれた変数を使うことを目的とする。[var.$name-of-variable]と書けばいい。
+
 /* 共通スタイル */
 h1,
 h2,

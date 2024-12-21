@@ -1,3 +1,5 @@
+@use 'variables' as var; // ./variables.scssに書かれた変数を使うことを目的とする。[var.$name-of-variable]と書けばいい。
+
 .form-inline {
   display: flex;
   align-items: center;
@@ -6,7 +8,7 @@
   input {
     padding: 8px 12px;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: 1px solid var.$common-border-color;
     border-radius: 4px;
     outline: none;
 
@@ -32,7 +34,7 @@
   input {
     padding: 10px 14px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid var.$common-border-color;
     border-radius: 4px;
     outline: none;
 
