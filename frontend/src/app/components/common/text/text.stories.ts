@@ -1,25 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Form } from "./form";
+import { Text } from "./text";
 
 const meta = {
-  title: "Bibliotheca/Form",
-  component: Form,
+  title: "Bibliotheca/Text",
+  component: Text,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-  
-} satisfies Meta<typeof Form>;
+} satisfies Meta<typeof Text>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Primaryストーリー
 export const Primary: Story = {
   args: {
-    label: "form",
-    type: "inline",
-    setter: () => {},
+    variant: "h1",
+    bold: false,
+    children: "This is a text component.",
   },
 };
