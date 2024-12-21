@@ -1,0 +1,40 @@
+/* 共通スタイル */
+h1,
+h2,
+h3,
+.body1,
+.body2,
+.body3 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal; // デフォルトのフォントウェイト
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* 各バリアントのスタイル */
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.body1 {
+  font-size: 1rem;
+}
+
+.body2 {
+  font-size: 0.875rem;
+}
+
+.body3 {
+  font-size: 0.75rem;
+}
