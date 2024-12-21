@@ -15,9 +15,7 @@ const Page = () => {
   const fetchBooks = async () => {
     try {
       const fetchedBooks = await bookService.listBooks();
-      console.log("fetchedBooks:", fetchedBooks);
       setBooks(fetchedBooks);
-      console.log("books:", books);
     } catch (error) {
       console.error("Error fetching books:", error);
       setBooks(undefined);
@@ -26,7 +24,6 @@ const Page = () => {
 
   useEffect(() => {
     fetchBooks();
-    console.log("books:", books);
   }, []);
 
   return (
