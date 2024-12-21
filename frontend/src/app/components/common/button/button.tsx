@@ -3,7 +3,7 @@ import "@/style/button.scss";
 interface ButtonProps {
   label: string;
   onClick?: () => void;
-  type: "main" | "minimal";
+  type: "main" | "normal" |"minimal";
 }
 export const Button = (props: ButtonProps) =>
 { 

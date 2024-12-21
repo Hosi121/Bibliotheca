@@ -1,6 +1,5 @@
 .button {
   display: inline-block;
-  
   font-weight: bold;
   text-align: center;
   text-decoration: none;
@@ -29,13 +28,27 @@
   // 修飾子
   &-main {
     border-radius: 10px;
-    padding: 10px 20px;
+    padding: 0;
     font-size: 25px;
+    width: 33.33%; // 画面の3分の1
+    aspect-ratio: 1 / 1; // 正方形
+    min-width: 100px; // 最低幅
+    min-height: 100px; // 最低高さ
   }
 
   &-minimal {
     border-radius: 10px;
-    padding: 5px 20px;
+    padding: 8px 8px;
     font-size: 15px;
+  }
+
+  &-normal {
+    border-radius: 10px;
+    padding: 0;
+    font-size: 18px;
+    width: 20%; // 画面の5分の1
+    aspect-ratio: 1 / 1; // 正方形
+    min-width: 80px; // 最低幅
+    min-height: 80px; // 最低高さ
   }
 }
