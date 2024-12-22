@@ -25,8 +25,10 @@ const Page = () => {
 
   return (
     <div className="user">
-      <Text className="user-title h1">Bibliotheca</Text>
-      <Text className="user-welcome h2">
+      <Text className="user-title" variant="h1">
+        Bibliotheca
+      </Text>
+      <Text className="user-welcome " variant="h3">
         ようこそ {username || "ゲスト"}さん
       </Text>
 
@@ -42,7 +44,7 @@ const Page = () => {
           onClick={() => router.push("/user/return")}
         />
         <div className="user-logout">
-          <Button label={"ログアウト"} type={"normal"} onClick={handleLogout} />
+          <Button label={"↩ Logout"} type={"normal"} onClick={handleLogout} />
         </div>
       </div>
     </div>
