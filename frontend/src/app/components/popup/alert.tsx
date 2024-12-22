@@ -6,13 +6,16 @@ interface AlertProps {
   message: string;
   onClickOK: () => void;
   onClickCancel: () => void;
+  className?: string; // classNameを追加
 }
 
 export const Alert = (props: AlertProps) => {
-  const { message, onClickOK, onClickCancel } = props;
+  const { message, onClickOK, onClickCancel, className } = props;
   return (
-    <div className="alert-container">
-      <Text className="alert-message" bold={true}>{message}</Text>
+    <div className={`alert-container ${className || ""}`.trim()}>
+      <Text className="alert-message" bold={true}>
+        {message}
+      </Text>
       <div className="alert-buttons">
         <Button
           className="alert-button cancel"

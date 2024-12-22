@@ -10,6 +10,7 @@ import { Book } from "@/types/books";
 import { borrowingService } from "@/api/borrowingService";
 import useUserInfo from "@/app/hooks/useUserInfo";
 import { Alert } from "@/app/components/popup/alert";
+import "@/style/page/borrow.scss";
 
 const Page = () => {
   const router = useRouter();
@@ -41,34 +42,49 @@ const Page = () => {
 
   return (
     <div className="borrow">
-      <h1 className="borrow-title">借りる</h1>
-      {books === undefined ? (
-        <p>書籍なし</p>
-      ) : (
-        books.map((book) => (
-          <BookColumn
-            key={book.id}
-            ISBN={book.isbn}
-            buttonLabel="借りる"
-            id={Number(book.id)}
-            onClick={() => handleBorrow(book.id)}
-            title={book.title}
-          />
-        ))
-      )}
-      <Button
-        label={"戻る"}
-        type={"normal"}
-        onClick={() => router.push("/user")}
-      />
-      {isOpen && (
-        <Alert
-          message={"この本を借りますか？"}
-          onClickOK={async () => {
-            await borrowingService.borrowBook(bookID, "admin");
-          }}
-          onClickCancel={() => setIsOpen(false)}
+      <div className="borrow-header">
+        <Button
+          label={"↩︎"}
+          type={"minimal"}
+          variant="h1"
+          className={"borrow-button__back"}
+          onClick={() => router.push("/user")}
         />
+        <h1 className="borrow-title">借りる</h1>
+      </div>
+
+      <div className="borrow-contents">
+        {books === undefined ? (
+          <p>書籍なし</p>
+        ) : (
+          books.map((book) => (
+            <BookColumn
+              key={book.id}
+              ISBN={book.isbn}
+              buttonLabel="借りる"
+              id={Number(book.id)}
+              onClick={() => handleBorrow(book.id)}
+              title={book.title}
+            />
+          ))
+        )}
+      </div>
+
+      {isOpen && (
+        <>
+          <div
+            className="borrow-alert-overlay"
+            onClick={() => setIsOpen(false)}
+          ></div>
+          <Alert
+            message={"この本を借りますか？"}
+            className={"borrow-alert"}
+            onClickOK={async () => {
+              await borrowingService.borrowBook(bookID, "admin");
+            }}
+            onClickCancel={() => setIsOpen(false)}
+          />
+        </>
       )}
     </div>
   );

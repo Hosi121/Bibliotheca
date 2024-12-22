@@ -6,6 +6,8 @@
   padding: 0.75rem 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
+  width: 100%; // 横幅を最大化
+  box-sizing: border-box; // paddingやborderを含めて計算
 
   &:not(:last-child) {
     margin-bottom: 0.5rem; // 各行間にスペースを追加
