@@ -1,1 +1,4 @@
-@use 'variables' as var; // ./variables.scssに書かれた変数を使うことを目的とする。[var.$name-of-variable]と書けばいい。
+@use 'colorVariables' as colorVar;
+// ./colorVariables.scssに書かれた変数を使うことを目的とする。[colorVar.$name-of-variable]と書けばいい。
+@use 'timeVariables' as timeVar;
+// ./timeVariables.scssに書かれた変数を使うことを目的とする。[timeVar.$name-of-colorVariable]と書けばいい。
