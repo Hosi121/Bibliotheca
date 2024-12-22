@@ -1,5 +1,7 @@
 @use 'colorVariables' as colorVar;
 // ./colorVariables.scssに書かれた変数を使うことを目的とする。[colorVar.$name-of-variable]と書けばいい。
+@use 'timeVariables' as timeVar;
+// ./timeVariables.scssに書かれた変数を使うことを目的とする。[timeVar.$name-of-colorVariable]と書けばいい。
 
 .button {
   display: inline-block;
@@ -10,14 +12,14 @@
   background-color: #007bff;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color timeVar.$button-transition;
   
   // ホバー時のスタイル
   &:hover {
     // background-color: #0056b3;
     box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
     transform: translateY(-0.25em) translateX(-0.25em);
-    transition: 0.25s;
+    transition: timeVar.$button-transition;
     box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.5);
   }
 
