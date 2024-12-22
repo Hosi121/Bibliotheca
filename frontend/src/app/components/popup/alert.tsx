@@ -19,13 +19,13 @@ export const Alert = (props: AlertProps) => {
       <div className="alert-buttons">
         <Button
           className="alert-button cancel"
-          label="キャンセル"
+          label="↩︎"
           type={"minimal"}
           onClick={onClickCancel}
         />
         <Button
           className="alert-button ok"
-          label="OK"
+          label="✓"
           type={"minimal"}
           onClick={onClickOK}
         />
