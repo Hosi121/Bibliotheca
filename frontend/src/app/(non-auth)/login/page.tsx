@@ -10,18 +10,16 @@ import { useRouter } from "next/navigation";
 import useUserInfo from "@/app/hooks/useUserInfo";
 
 const Page = () => {
-  const { username,setUsername,password,setPassword } = useUserInfo();
+  const { username, setUsername, password, setPassword } = useUserInfo();
   const [error, setError] = useState("");
   const router = useRouter();
 
   const handleLogin = async () => {
-    try
-    {
+    try {
       localStorage.setItem("username", username);
       setError(""); // エラー状態をリセット
       await authService.login(username, password);
       router.push("/user");
-      // 必要なら次の画面へリダイレクトなど
     } catch (err) {
       setError("ログインに失敗しました。");
       console.log("ログインエラー:", err);
@@ -29,12 +27,21 @@ const Page = () => {
   };
 
   return (
-    <div className="login">
-      <Text variant={"h1"}>Bibliotheca</Text>
-      <Form label="ユーザーネーム" type={"inline"} setter={setUsername} />
-      <Form label="パスワード" type={"inline"} setter={setPassword} />
-      {error && <p>{error}</p>}
-      <Button label={"ログイン"} type={"minimal"} onClick={handleLogin} />
+    <div className="login-page">
+      <div className="login-container">
+        <div className="login-left">
+          <Text variant="h1">Bibliotheca</Text>
+          <p>あなたの知識を広げるためのプラットフォームです。</p>
+        </div>
+        <div className="login-right">
+          <Form label="ユーザーネーム" type="online" setter={setUsername} />
+          <Form label="パスワード" type="online" setter={setPassword} />
+          {error && <p className="error-message">{error}</p>}
+          <div className="button-container">
+            <Button label="ログイン" type="minimal" onClick={handleLogin} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
