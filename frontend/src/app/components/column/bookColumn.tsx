@@ -5,7 +5,7 @@ import "@/style/bookColumn.scss";
 interface BookColumnProps {
   id: number;
   title: string;
-  ISBN: number;
+  ISBN: string;
   buttonLabel: string;
   onClick: (id: number) => void; // 引数に `id` を受け取り、戻り値なし
 }
@@ -13,7 +13,7 @@ export const BookColumn = (props: BookColumnProps) => {
   const { id, title, ISBN, onClick, buttonLabel} = props;
   return (
     <div className="book-column">
-      <Text variant="h3" className="book-column__id">
+      <Text variant="body1" className="book-column__id">
         {id}
       </Text>
       <Text variant="h3" className="book-column__title">

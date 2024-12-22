@@ -9,6 +9,8 @@
   background-color: var.$common-background-color;
   border: 1px solid var.$common-border-color;
   border-radius: 6px;
+  width: 100%; // 横幅を最大化
+  box-sizing: border-box; // paddingやborderを含めて計算
 
   &:not(:last-child) {
     margin-bottom: 0.5rem; // 各行間にスペースを追加
@@ -17,12 +19,10 @@
   &__id {
     text-align: center;
     font-weight: bold;
-    color: #333;
   }
 
   &__title {
     font-weight: bold;
-    color: #444;
     white-space: nowrap; // テキストを1行で表示
     overflow: hidden; // 内容が溢れた場合は隠す
     text-overflow: ellipsis; // 溢れた場合に省略記号を表示
@@ -30,7 +30,6 @@
 
   &__isbn {
     text-align: center;
-    color: #555;
   }
 
   &__button {

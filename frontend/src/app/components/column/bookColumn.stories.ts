@@ -18,7 +18,7 @@ export const Primary: Story = {
   args: {
     id: 1,
     title: "Title",
-    ISBN: 1234567890123,
+    ISBN: "1234567890123",
     buttonLabel: "借りる",
     onClick: () => {},
   },

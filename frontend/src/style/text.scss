@@ -1,9 +1,9 @@
 @use 'variables' as var; // ./variables.scssに書かれた変数を使うことを目的とする。[var.$name-of-variable]と書けばいい。
 
 /* 共通スタイル */
-h1,
-h2,
-h3,
+.h1,
+.h2,
+.h3,
 .body1,
 .body2,
 .body3 {
@@ -17,15 +17,15 @@ h3,
 }
 
 /* 各バリアントのスタイル */
-h1 {
+.h1 {
   font-size: 2rem;
 }
 
-h2 {
+.h2 {
   font-size: 1.75rem;
 }
 
-h3 {
+.h3 {
   font-size: 1.5rem;
 }
 

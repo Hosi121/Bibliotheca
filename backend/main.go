@@ -1,62 +1,44 @@
 package main
 
 import (
+	"time"
+
+	"github.com/Hosi121/Bibliotheca/api"
+	"github.com/Hosi121/Bibliotheca/middleware"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	// Ginのデフォルトのルーターを作成
+	// Ginのルーターを作成
 	r := gin.Default()
 
-	// 書籍APIエンドポイント
-	r.POST("/api/books", func(c *gin.Context) {
-		// テスト用レスポンス
-		c.JSON(200, gin.H{
-			"message": "書籍が登録されました",
-			"data": gin.H{
-				"isbn":  "1234567890",
-				"title": "本のタイトル",
-			},
-		})
-	})
+	// CORS設定
+	r.Use(cors.New(cors.Config{
+		AllowOrigins: []string{
+			"http://localhost:3000",
+			"https://bibliotheca-omega.vercel.app",
+		},
+		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders:     []string{"Content-Type", "Authorization"},
+		AllowCredentials: true,
+		MaxAge:           12 * time.Hour,
+	}))
 
-	r.GET("/api/books", func(c *gin.Context) {
-		// テスト用レスポンス
-		c.JSON(200, gin.H{
-			"message": "書籍一覧を取得しました",
-			"data": []gin.H{
-				{"id": 1, "title": "本1", "isbn": "1111111111"},
-				{"id": 2, "title": "本2", "isbn": "2222222222"},
-			},
-		})
-	})
+	// 認証エンドポイント
+	r.POST("/api/login", api.Login)
 
-	r.GET("/api/books/:id", func(c *gin.Context) {
-		id := c.Param("id")
-		// テスト用レスポンス
-		c.JSON(200, gin.H{
-			"message": "書籍の詳細を取得しました",
-			"data": gin.H{
-				"id":    id,
-				"title": "本" + id,
-				"isbn":  "1234567890",
-			},
-		})
-	})
+	// 書籍エンドポイント（認証が必要）
+	books := r.Group("/api/books", middleware.AuthMiddleware())
+	{
+		books.POST("", api.CreateBook)
+		books.GET("", api.GetBooks)
+		books.GET("/:id", api.GetBookByID)
+		books.DELETE("/:id", api.DeleteBook)
+	}
 
-	r.DELETE("/api/books/:id", func(c *gin.Context) {
-		id := c.Param("id")
-		// テスト用レスポンス
-		c.JSON(200, gin.H{
-			"message": "書籍が除籍されました",
-			"data": gin.H{
-				"id":     id,
-				"reason": "破損",
-			},
-		})
-	})
-
-	// サーバーを起動
-	r.Run(":8080") // デフォルトポート8080で起動
+	// サーバー起動
+	if err := r.Run(":8080"); err != nil {
+		panic("サーバーの起動に失敗しました: " + err.Error())
+	}
 }
-
