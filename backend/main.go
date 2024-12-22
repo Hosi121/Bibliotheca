@@ -1,10 +1,20 @@
 package main
 
 import (
+	"log"
+	"backend/migrations"//マイグレーション用
+	"backend/config"//DB接続用
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+
+	// AutoMigrateの実行
+	if err := migrations.AutoMigrate(db); err != nil {
+		log.Fatalf("Migration failed: %v", err)
+	}
+	log.Println("Migration completed successfully")
+	
 	// Ginのデフォルトのルーターを作成
 	r := gin.Default()
 
