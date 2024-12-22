@@ -4,9 +4,20 @@ import { Button } from "@/app/components/common/button/button";
 import { Text } from "@/app/components/common/text/text";
 import "@/style/page/user.scss";
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const Page = () => {
   const router = useRouter();
+  const [username, setUsername] = useState("");
+
+  // クライアントサイドでlocalStorageの値を取得
+  useEffect(() => {
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []);
+
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     router.push("/login");
@@ -16,7 +27,7 @@ const Page = () => {
     <div className="user">
       <Text className="user-title h1">Bibliotheca</Text>
       <Text className="user-welcome h2">
-        ようこそ {localStorage.getItem("username")}さん
+        ようこそ {username || "ゲスト"}さん
       </Text>
 
       <div className="user-buttons">
@@ -31,11 +42,7 @@ const Page = () => {
           onClick={() => router.push("/user/return")}
         />
         <div className="user-logout">
-          <Button
-            label={"ログアウト"}
-            type={"normal"}
-            onClick={() => handleLogout()}
-          />
+          <Button label={"ログアウト"} type={"normal"} onClick={handleLogout} />
         </div>
       </div>
     </div>
