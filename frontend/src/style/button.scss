@@ -10,7 +10,7 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
+  
   // ホバー時のスタイル
   &:hover {
     // background-color: #0056b3;
@@ -22,7 +22,9 @@
 
   // アクティブ時のスタイル
   &:active {
-    background-color: #004085;
+    // background-color: #004085;
+    background-color: #3396ff;
+    opacity: 0.5;
   }
 
   // 無効状態のスタイル
