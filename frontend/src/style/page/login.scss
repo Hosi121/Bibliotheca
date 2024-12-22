@@ -1,8 +1,62 @@
-.login {
+
+
+/* SCSS Styles */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.login-container {
+  display: flex;
+  max-width: 1200px;
+  width: 90%;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.login-left,
+.login-right {
+  padding: 2rem;
+  flex: 1;
+}
+
+.login-left {
+  background: #f0f4f8;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  gap: 10px;
+}
+
+.login-left h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.login-left p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.login-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-right h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.error-message {
+  color: red;
+  margin: 0.5rem 0;
+}
+
+.button-container {
+  margin-top: 1rem;
 }
