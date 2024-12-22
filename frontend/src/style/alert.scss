@@ -29,25 +29,35 @@
       border-radius: 4px;
       font-size: 14px;
       cursor: pointer;
-      transition: background-color 0.2s ease;
+      transition: all 0.5s ease;
 
       &.ok {
-        background-color: #4caf50;
-        color: var.$common-textinbutton-color;
-        border: none;
+        // background-color: #4caf50;
+        background-color: var.$common-background-color;
+        color: var.$alert-ok-themecolor-nothover;
+        border: 1px solid var.$alert-ok-themecolor-nothover;
+        // border: none;
 
         &:hover {
-          background-color: #45a049;
+          // background-color: #45a049;
+          background-color: var.$alert-ok-themecolor-hover;
+          color: var.$common-textinbutton-color;
+          border: 1px solid var.$alert-ok-themecolor-hover;
         }
       }
 
       &.cancel {
-        background-color: #f44336;
-        color: var.$common-textinbutton-color;
-        border: none;
+        // background-color: #f44336;
+        background-color: var.$common-background-color;
+        color: var.$alert-cancel-themecolor-nothover;
+        border: 1px solid var.$alert-cancel-themecolor-nothover;
+        // border: none;
 
         &:hover {
-          background-color: #e53935;
+          // background-color: #e53935;
+          background-color: var.$alert-cancel-themecolor-hover;
+          color: var.$common-textinbutton-color;
+          border: 1px solid var.$alert-cancel-themecolor-hover;
         }
       }
     }
