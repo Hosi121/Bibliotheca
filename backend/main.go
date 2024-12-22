@@ -1,14 +1,29 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"time"
+
 	"github.com/Hosi121/Bibliotheca/api"
 	"github.com/Hosi121/Bibliotheca/middleware"
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	// Ginのルーターを作成
 	r := gin.Default()
+
+	// CORS設定
+	r.Use(cors.New(cors.Config{
+		AllowOrigins: []string{
+			"http://localhost:3000",
+			"https://bibliotheca-omega.vercel.app",
+		},
+		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders:     []string{"Content-Type", "Authorization"},
+		AllowCredentials: true,
+		MaxAge:           12 * time.Hour,
+	}))
 
 	// 認証エンドポイント
 	r.POST("/api/login", api.Login)
@@ -23,6 +38,7 @@ func main() {
 	}
 
 	// サーバー起動
-	r.Run(":8080")
+	if err := r.Run(":8080"); err != nil {
+		panic("サーバーの起動に失敗しました: " + err.Error())
+	}
 }
-

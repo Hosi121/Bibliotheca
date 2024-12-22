@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import authService from "@/api/services/authService";
+import authService from "@/api/authService";
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,

@@ -1,8 +1,12 @@
 import axios from "@/api/axiosInstance";
 
 const authService = {
-  async login(email: string, password: string): Promise<string> {
-    const response = await axios.post<{ token: string }>("/auth/login", { email, password });
+  async login(username: string, password: string): Promise<string>
+  {
+    const response = await axios.post<{ token: string }>("/login", {
+      username,
+      password,
+    });
     const { token } = response.data;
     localStorage.setItem("accessToken", token);
     return token;

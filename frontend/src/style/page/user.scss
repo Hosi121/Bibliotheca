@@ -4,14 +4,19 @@
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  padding: 1rem;
+  padding: 2rem;
   box-sizing: border-box;
+  background-color: #f9f9f9;
 
   &-title {
-    margin-bottom: 2rem;
-    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
     text-align: center;
     width: 100%;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
   }
 
   &-buttons {
@@ -19,18 +24,59 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    width: 50%;
-    margin-top: auto;
-    margin-bottom: auto;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 
     button {
-      flex: 1;
+      flex: 1 1 calc(50% - 1rem);
       max-width: 100%;
-      padding: 1rem;
+      padding: 1rem 1.5rem;
       font-size: 1rem;
       text-align: center;
-      box-sizing: border-box;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  &-logout {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 100px;
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      background-color: #f1f1f1;
+      color: #666;
+      border: 1px solid #ddd;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background-color: #e9e9e9;
+        color: #333;
+      }
+
+      &:active {
+        background-color: #dcdcdc;
+        color: #333;
+      }
     }
   }
 }

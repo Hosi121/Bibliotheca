@@ -1,7 +1,8 @@
-import axios from "@/api/axiosInstance";
-import { Borrowing } from "../../types/borrowings";
 
-const borrowingService = {
+import axios from "@/api/axiosInstance";
+import { Borrowing } from "@/types/borrowings";
+
+export const borrowingService = {
   async borrowBook(bookId: string, userId: string): Promise<Borrowing> {
     const response = await axios.post<Borrowing>("/borrowings", { book_id: bookId, user_id: userId });
     return response.data;
@@ -23,4 +24,4 @@ const borrowingService = {
   },
 };
 
-export default borrowingService;
+

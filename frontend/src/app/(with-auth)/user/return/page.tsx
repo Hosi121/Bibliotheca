@@ -12,7 +12,7 @@ const Page = () => {
     <div className="return">
       <h1 className="return-title">返す</h1>
       <BookColumn
-        ISBN={1234567890123}
+        ISBN={"1234567890123"}
         buttonLabel="返す"
         id={1}
         onClick={() => {}}
