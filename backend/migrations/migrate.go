@@ -2,7 +2,7 @@ package migrations
 
 import (
     "gorm.io/gorm"
-    "project/models"
+    "backend/models"
 )
 
 func AutoMigrate(db *gorm.DB) error {
