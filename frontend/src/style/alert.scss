@@ -1,4 +1,5 @@
-@use 'variables' as var; // ./variables.scssに書かれた変数を使うことを目的とする。[var.$name-of-variable]と書けばいい。
+@use 'colorVariables' as colorVar;
+// ./colorVariables.scssに書かれた変数を使うことを目的とする。[colorVar.$name-of-colorVariable]と書けばいい。
 
 .alert-container {
   display: flex;
@@ -6,9 +7,9 @@
   align-items: center;
   justify-content: center;
   padding: 16px;
-  border: 1px solid var.$common-border-color;
+  border: 1px solid colorVar.$common-border-color;
   border-radius: 8px;
-  background-color: var.$common-background-color;
+  background-color: colorVar.$common-background-color;
   width: 300px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
@@ -33,31 +34,31 @@
 
       &.ok {
         // background-color: #4caf50;
-        background-color: var.$common-background-color;
-        color: var.$alert-ok-themecolor-nothover;
-        border: 1px solid var.$alert-ok-themecolor-nothover;
+        background-color: colorVar.$common-background-color;
+        color: colorVar.$alert-ok-themecolor-nothover;
+        border: 1px solid colorVar.$alert-ok-themecolor-nothover;
         // border: none;
 
         &:hover {
           // background-color: #45a049;
-          background-color: var.$alert-ok-themecolor-hover;
-          color: var.$common-textinbutton-color;
-          border: 1px solid var.$alert-ok-themecolor-hover;
+          background-color: colorVar.$alert-ok-themecolor-hover;
+          color: colorVar.$common-textinbutton-color;
+          border: 1px solid colorVar.$alert-ok-themecolor-hover;
         }
       }
 
       &.cancel {
         // background-color: #f44336;
-        background-color: var.$common-background-color;
-        color: var.$alert-cancel-themecolor-nothover;
-        border: 1px solid var.$alert-cancel-themecolor-nothover;
+        background-color: colorVar.$common-background-color;
+        color: colorVar.$alert-cancel-themecolor-nothover;
+        border: 1px solid colorVar.$alert-cancel-themecolor-nothover;
         // border: none;
 
         &:hover {
           // background-color: #e53935;
-          background-color: var.$alert-cancel-themecolor-hover;
-          color: var.$common-textinbutton-color;
-          border: 1px solid var.$alert-cancel-themecolor-hover;
+          background-color: colorVar.$alert-cancel-themecolor-hover;
+          color: colorVar.$common-textinbutton-color;
+          border: 1px solid colorVar.$alert-cancel-themecolor-hover;
         }
       }
     }

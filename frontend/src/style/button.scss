@@ -1,11 +1,12 @@
-@use 'variables' as var; // ./variables.scssに書かれた変数を使うことを目的とする。[var.$name-of-variable]と書けばいい。
+@use 'colorVariables' as colorVar;
+// ./colorVariables.scssに書かれた変数を使うことを目的とする。[colorVar.$name-of-variable]と書けばいい。
 
 .button {
   display: inline-block;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  color: var.$common-textinbutton-color;
+  color: colorVar.$common-textinbutton-color;
   background-color: #007bff;
   border: none;
   cursor: pointer;

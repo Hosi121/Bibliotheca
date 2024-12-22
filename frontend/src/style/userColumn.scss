@@ -1,4 +1,5 @@
-@use 'variables' as var; // ./variables.scssに書かれた変数を使うことを目的とする。[var.$name-of-variable]と書けばいい。
+@use 'colorVariables' as colorVar;
+// ./colorVariables.scssに書かれた変数を使うことを目的とする。[colorVar.$name-of-variable]と書けばいい。
 
 .user-column {
   display: grid;
@@ -7,8 +8,8 @@
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 1rem;
-  background-color: var.$common-background-color;
-  border: 1px solid var.$common-border-color;
+  background-color: colorVar.$common-background-color;
+  border: 1px solid colorVar.$common-border-color;
   border-radius: 6px;
 
   &:not(:last-child) {
@@ -28,7 +29,7 @@
     padding: 0.25rem 0.5rem;
     font-size: 0.9rem;
     background-color: #007bff;
-    color: var.$common-textinbutton-color;
+    color: colorVar.$common-textinbutton-color;
     border: none;
     border-radius: 4px;
     cursor: pointer;
