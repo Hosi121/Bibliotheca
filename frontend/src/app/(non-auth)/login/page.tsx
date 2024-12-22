@@ -7,18 +7,19 @@ import "@/style/page/login.scss";
 import { useState } from "react";
 import authService from "@/api/authService";
 import { useRouter } from "next/navigation";
+import useUserInfo from "@/app/hooks/useUserInfo";
 
 const Page = () => {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
+  const { username,setUsername,password,setPassword } = useUserInfo();
   const [error, setError] = useState("");
   const router = useRouter();
 
   const handleLogin = async () => {
-    try {
+    try
+    {
+      localStorage.setItem("username", username);
       setError(""); // エラー状態をリセット
-      const token = await authService.login(id, password);
-      console.log("ログイン成功:", token);
+      await authService.login(username, password);
       router.push("/user");
       // 必要なら次の画面へリダイレクトなど
     } catch (err) {
@@ -30,7 +31,7 @@ const Page = () => {
   return (
     <div className="login">
       <Text variant={"h1"}>Bibliotheca</Text>
-      <Form label="ID" type={"inline"} setter={setId} />
+      <Form label="ユーザーネーム" type={"inline"} setter={setUsername} />
       <Form label="パスワード" type={"inline"} setter={setPassword} />
       {error && <p>{error}</p>}
       <Button label={"ログイン"} type={"minimal"} onClick={handleLogin} />
